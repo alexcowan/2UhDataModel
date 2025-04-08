@@ -1,0 +1,146 @@
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyCOPgDQ4PAwNtOxZQtkkRpy0LV37VVEzJg",
+    authDomain: "hinh-78995.firebaseapp.com",
+    projectId: "hinh-78995",
+    storageBucket: "hinh-78995.appspot.com",
+    messagingSenderId: "389014950808",
+    appId: "1:389014950808:web:5599635662f42697b091ed",
+    measurementId: "G-XL6BSRZLQE",
+  }
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig)
+  firebase.analytics()
+</script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+<!-- Top Bar: Navigation, Search Box, and Authentication Controls -->
+<div class="top-bar">
+  <ul class="nav-list">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Help</a></li>
+  </ul>
+
+  <div id="search-box">
+
+  </div>
+
+  <div id="auth-control">
+    <img
+      src="https://www.alexandercowan.com/wp-content/uploads/2018/04/login-icon.png"
+      alt="auth"
+      style="width: 30px; float: left"
+    />
+    <ul class="nav-list">
+      <li id="login-trigger"><a href="#" id="auth-text">Log In</a></li>
+    </ul>
+
+    <div id="login-content">
+      <!-- Login Form (CHANGED: Updated form ID to "loginForm") -->
+      <form id="loginForm" onsubmit="return false">
+        <input type="text" placeholder="Email" id="login_email" required />
+        <input type="password" placeholder="Password" id="login_pwd" required />
+        <button type="submit">Log In</button>
+        <a id="forgotten-link">Forgot Password?</a>
+        <h3><a class="auth-link" id="register-link">Register</a></h3>
+      </form>
+
+      <!-- Registration Form (CHANGED: Updated form ID to "registerForm") -->
+      <form id="registerForm" onsubmit="return false">
+        <input type="text" placeholder="Email" id="register_email" required />
+        <input
+          type="password"
+          placeholder="Password"
+          id="register_pwd"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          id="register_re_pwd"
+          required
+        />
+        <button type="submit" style="text-align: right">Register</button>
+        <div id="if-reg-error">
+          <div id="reg-error-response" style="margin-top: 5px"></div>
+        </div>
+      </form>
+
+      <!-- Password Recovery Form (CHANGED: Updated form ID to "forgottenForm") -->
+      <form id="forgottenForm" onsubmit="return false">
+        <div id="before-reset">
+          <input type="text" placeholder="Email" id="recovery_email" required />
+          <button type="submit">Recover</button>
+        </div>
+        <div id="after-reset">
+          <div id="reset-response" style="margin-top: 5px">
+            <p>
+              Reset instructions are on their way to
+              <span id="submitted-email">email</span>. If you're still having
+              trouble with login, please get in touch.
+            </p>
+            <p><a id="loginAgain" href="#">Log In</a></p>
+          </div>
+        </div>
+        <div id="if-error">
+          <div id="error-response" style="margin-top: 5px"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Search Controls -->
+<div id="search-controls">
+  <div id="result-sort">
+    Sort By
+    <select>
+      <option value="None">Popularity</option>
+      <option value="Acme">Price</option>
+      <option value="Bacme">Manufacturer</option>
+    </select>
+  </div>
+  <div id="filter-parts">
+    Search By
+    <!-- CHANGED: Updated dropdown IDs to "ddMfr" and "ddModel" -->
+    <select id="ddMfr">
+      <option value="All">Manufacturer</option>
+      <option value="Acme">Acme</option>
+      <option value="Bacme">Bacme</option>
+      <option value="Cacme">Cacme</option>
+      <option value="Dacme">Dacme</option>
+    </select>
+    <select id="ddModel">
+      <option value="All">Model</option>
+      <option value="TooCool">TooCool</option>
+      <option value="TooHot">TooHot</option>
+      <option value="JustRight">JustRight</option>
+      <option value="Coolerator">Coolerator</option>
+    </select>
+    <select>
+      <option value="All">Type</option>
+      <option value="Sniggler">Sniggler</option>
+      <option value="Wiggler">Wiggler</option>
+      <option value="Jiggler">Jiggler</option>
+      <option value="Tiggler">Tiggler</option>
+    </select>
+  </div>
+  <button type="button" id="go-btn">Go</button>
+</div>
+
+<!-- Parts Display: The container will be populated dynamically by JS -->
+<div id="parts-content"></div>
