@@ -1,0 +1,31 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Editor settings
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Node.js dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment files
+.env
+.env.*
+
+# OS trash
+.Trashes
+
+# Misc
+*.bak
+*.tmp
