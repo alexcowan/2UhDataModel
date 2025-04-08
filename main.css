@@ -1,0 +1,321 @@
+body {
+    display: block;
+    margin: 8px;
+}
+
+.top-bar, #search-box, .nav-list li, .nav-list a {
+	background-color: #002D45;
+	font-family: Proxima Nova,helvetica neue,helvetica,sans-serif;
+	font-weight: bold;
+	font-size: 110%;
+	color: #ffffff;
+}
+
+.top-bar {
+	color: #FFFFFF;
+	height: 40px;
+	margin: 0px;
+	padding: 10px;
+    display: flex;
+    align-items: center;
+}
+#Header {
+	font-family: Proxima Nova,helvetica neue,helvetica,sans-serif;
+	font-weight: bold;
+	font-size: 200%;
+	color: rgb(0, 0, 0);
+}
+
+.nav-list {
+    list-style-type: none;
+    padding: 0;
+		display: inline;
+
+}
+
+.nav-list li {
+	    float: left;
+}
+
+.nav-list a {
+    display: inline;
+    padding: 8px;
+		text-decoration: none;
+}
+
+#search-box {
+	margin-left: auto;
+	margin-right: 0;
+	padding: 10px;
+ }
+ 
+ #login-content {
+  display: none;
+  position: absolute;
+	margin-right: 10px;
+  top: 60px;
+  right: 0;
+	left: 1000;
+  z-index: 999;
+  background: #ffffff;
+  padding: 15px;
+	border: 1px solid #CCC;
+  width: 200px;
+}
+
+/* Keeps this in sync w/ the login-content div */
+#login-form {
+  display: none;
+}
+
+ #login-content input {
+  margin-bottom: 3px;
+  padding: 10px;
+  width: 90%;
+  border: 1px solid #CCC;
+}
+
+ #login-content label {
+  cursor: pointer;
+  font-family: Proxima Nova,helvetica neue,helvetica,sans-serif;
+	color: #002D45;
+}
+
+ #login-content #register-form {
+  display: none;
+}
+
+ #login-content #forgotten-form {
+  display: none;
+}
+
+ #login-content, #after-reset, #if-error, #if-reg-error {
+  display: none;
+}
+
+ #login-content .auth-link {
+  cursor: pointer;
+  font-family: Proxima Nova,helvetica neue,helvetica, sans-serif;
+	color: #002D45;
+}
+
+#forgotten-link, #reset-response, #after-reset, #login-link-modal, #if-error, #if-reg-error {
+  cursor: pointer;
+  font-family: Proxima Nova,helvetica neue,helvetica,sans-serif;
+	color: #002D45;
+	font-size: 80%;
+}
+
+#login-link-modal {
+	font-size: 120%;
+}
+
+#go-btn {
+  margin: 5px;
+ }
+
+
+#search-controls {
+	background-color: #ffffff;
+	font-family: Proxima Nova,helvetica neue,helvetica,sans-serif;
+	font-size: 70%;
+  display: flex;
+  align-items: center;
+}
+
+
+#filter-parts {
+	float: right;
+	margin-left: auto;
+	margin-right: 0;
+	padding-right: 5px;
+ }
+
+.catalog-part {
+  margin: 2px;
+  padding: 0px 5px;
+  float: left;
+  border-style: solid;
+  border-color: #808285;
+  border-width: 1px;
+  width: 150px;
+  height: 200px;
+  line-height: 200px;
+	display: table-cell;
+  position: relative;
+}
+
+.catalog-part img {
+  height: auto;
+	vertical-align: middle;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #f4f4f4;
+	display: inline-table;
+}
+
+.catalog-part:hover .overlay {
+  opacity: 0.75;
+}
+
+p {
+	font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+  line-height: 1;
+	overflow: scroll;
+}
+
+.catalog-part p {
+	vertical-align: middle;
+	text-align: center;
+  color: black;
+	display: table-cell;
+	font-size: 80%;
+	font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.rating {
+    float:left;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    --text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: #0077cc;
+    --text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: #0077cc;
+    --text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #0077cc;
+    --text-shadow:1px 1px goldenrod, 2px 2px #cc5500, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+
+/* end of Lea's code */
+
+/*
+ * Clearfix from html5 boilerplate
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* my stuff */
+#status, button {
+    margin: 30px 0;
+}
+
+#review-form{
+  display: none;
+}
+
+
+
+
+.parts-display {
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: repeat(3, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+#parts-content { grid-area: 1 / 1 / 2 / 2; }
+#review-form { grid-area: 2 / 1 / 3 / 2; }
+#part-reviews { 
+grid-area: 3 / 1 / 4 / 2;
+}
+
+
+.reviews {
+  margin: 10px;
+  float: left;
+  border-style: none;
+  border-color: #808285;
+  border-width: 1px;
+  width: 600px;
+  height: 100px;
+	display: table-cell;
+  
+  position: relative;
+}
+
+.fa-star {
+  opacity: .5;
+}
+
+.checked {
+  color: black;
+  opacity: 1;
+}
+
+
