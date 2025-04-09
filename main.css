@@ -192,9 +192,9 @@ p {
     float:left;
 }
 
-/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+/* :not(:checked) is a filter, so that browsers that don't support :checked don't 
    follow these rules. Every browser that supports :checked also supports :not(), so
-   it doesn’t make the test unnecessarily selective */
+   it doesn't make the test unnecessarily selective */
 .rating:not(:checked) > input {
     position:absolute;
     top:-9999px;
@@ -316,6 +316,25 @@ grid-area: 3 / 1 / 4 / 2;
 .checked {
   color: black;
   opacity: 1;
+}
+
+/* Button styles */
+#order-btn, #checkout-btn {
+    background-color: #002D45;
+    color: #ffffff;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, sans-serif;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 110%;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#order-btn:hover, #checkout-btn:hover {
+    background-color: #004267;
 }
 
 
