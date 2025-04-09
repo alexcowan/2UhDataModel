@@ -337,4 +337,77 @@ grid-area: 3 / 1 / 4 / 2;
     background-color: #004267;
 }
 
+/* Detail Page Styles */
+#part-info {
+    margin: 15px;
+    padding: 0 5px;
+    width: 100%;
+}
+
+#part-info img {
+    float: left;
+    padding: 5px;
+}
+
+#part-info h2 {
+    display: inline;
+}
+
+#part-info h3 {
+    margin: 0;
+}
+
+#review-signifier {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    float: left;
+}
+
+input.star {
+    display: none;
+}
+
+label.star {
+    padding: 0;
+    font-size: 15px;
+    color: #444;
+}
+
+input.star:checked ~ label.star:before {
+    content: "\f005";
+    color: #000;
+    transition: all 0.25s;
+}
+
+label.star:before {
+    content: "\f006";
+    font-family: FontAwesome;
+}
+
+#user-reviews {
+    clear: both;
+}
+
+#mod-link {
+    display: none;
+}
+
+#order-btn, #checkout-btn {
+    background-color: #002D45;
+    color: #ffffff;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, sans-serif;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 110%;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#order-btn:hover, #checkout-btn:hover {
+    background-color: #004267;
+}
+
 
