@@ -106,7 +106,7 @@ document
 			const pn = event.target.textContent;
 			localStorage.setItem("part-index", pn);
 			console.log("the PN is " + localStorage.getItem("part-index"));
-			window.open("https://jsfiddle.net/acowan/tjg3ncw9/show", "_newtab");
+			window.location.href = "detail.html";
 		}
 	});
 
